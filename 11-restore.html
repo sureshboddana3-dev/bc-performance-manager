@@ -1,0 +1,5 @@
+<!DOCTYPE html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Restore backup</title>
+<script src="./shim.js"></script>
+<body style="font-family:sans-serif;padding:20px"><h3>Restore backup</h3><p>Choose the BC_Manager_Backup_....json exported from the old app. This replaces data on this phone.</p>
+<input type="file" accept=".json" id="f"><p id="m"></p>
+<script>f.onchange=async()=>{try{const n=bcpmRestoreBackup(await f.files[0].text());m.textContent='Restored '+n+' data sets. Open the app.';m.innerHTML+=' <a href="./index.html">Open app</a>'}catch(e){m.textContent='Failed: '+e.message}}</script>
